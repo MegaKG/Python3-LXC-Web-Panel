@@ -1,3 +1,10 @@
+## Version 0.2.1 - Py3
+## 2022-11-10
+
+* Updated platform.linux_distribution to distro.linux_distribution
+- Bypass New Version Check - Obselete
+* Fix day counter rounding
+
 ## Version 0.2 beta
 ## 2013-04-30
 

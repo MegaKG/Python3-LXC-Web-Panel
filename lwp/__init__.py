@@ -35,6 +35,7 @@ import platform
 import re
 import subprocess
 import time
+import distro
 
 from io import StringIO
 
@@ -216,7 +217,7 @@ def host_uptime():
     uptime = int(f.readlines()[0].split('.')[0])
     minutes = uptime / 60 % 60
     hours = uptime / 60 / 60 % 24
-    days = uptime / 60 / 60 / 24
+    days = int(uptime / 60 / 60 / 24)
     f.close()
     return {'day': days,
             'time': '%d:%02d' % (hours, minutes)}
@@ -226,8 +227,8 @@ def check_ubuntu():
     '''
     return the System version
     '''
-    dist = '%s %s' % (platform.linux_distribution()[0],
-                      platform.linux_distribution()[1])
+    dist = '%s %s' % (distro.linux_distribution()[0],
+                      distro.linux_distribution()[1])
     return dist
 
 
@@ -257,9 +258,9 @@ def check_version():
     f = open('version')
     current = float(f.read())
     f.close()
-    latest = float(urlopen('http://lxc-webpanel.github.com/version').read())
+    
     return {'current': current,
-            'latest': latest}
+            'latest': current}
 
 def get_net_settings_fname():
     filename = '/etc/default/lxc-net'

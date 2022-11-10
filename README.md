@@ -1,6 +1,7 @@
 LXC-Web-Panel
 =============
 
-LXC Web Panel repository
+LXC Web Panel repository - Python3 Port
 
-## Visit http://lxc-webpanel.github.io/ for more informations
+Default Username: admin
+Default Password: admin
